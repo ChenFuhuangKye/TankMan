@@ -38,11 +38,14 @@ class Player(pygame.sprite.Sprite):
         self.vel = Vec(0, 0)
 
         self.speed = 8
+        self.sqrt2 = 1.414
         # TODO refactor use vel
-        self.move_dict = {"left_up": Vec(-self.speed, -self.speed), "right_up": Vec(self.speed, -self.speed),
-                     "left_down": Vec(-self.speed, self.speed), "right_down": Vec(self.speed, self.speed),
-                     "left": Vec(-self.speed, 0), "right": Vec(self.speed, 0), "up": Vec(0, -self.speed),
-                     "down": Vec(0, self.speed)}
+        self.move_dict = {"left_up": Vec(-self.speed/self.sqrt2, -self.speed/self.sqrt2),
+                        "right_up": Vec(self.speed/self.sqrt2, -self.speed/self.sqrt2),
+                        "left_down": Vec(-self.speed/self.sqrt2, self.speed/self.sqrt2),
+                        "right_down": Vec(self.speed/self.sqrt2, self.speed/self.sqrt2),
+                        "left": Vec(-self.speed, 0), "right": Vec(self.speed, 0), "up": Vec(0, -self.speed),
+                        "down": Vec(0, self.speed)}
         self.rot = 0
         self.last_shoot_frame = self.used_frame
         self.last_turn_frame = self.used_frame
