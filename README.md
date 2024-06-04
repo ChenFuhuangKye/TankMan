@@ -96,7 +96,7 @@ python -m mlgame -f 120 -i  ml/ml_play.py -i ml/ml_play.py . --green_team_num 1 
 5. 彈匣（10）
 ---
 ### **`Walls`**
-1. 生命次數（3）
+1. 生命次數（4）
 2. 透明設定（依照生命次數決定）
 ---
 ### **`補給站`**
@@ -115,7 +115,7 @@ python -m mlgame -f 120 -i  ml/ml_play.py -i ml/ml_play.py . --green_team_num 1 
 
 ---
 # 地圖製作
-- 地圖製作教學 [Mapping.md](https://github.com/Jesse-Jumbo/TankMan/blob/main/Mapping.md)
+- 地圖製作教學 [Mapping.md](Mapping.md)
 
 ---
 # image sours
