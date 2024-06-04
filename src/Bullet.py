@@ -33,8 +33,11 @@ class Bullet(pygame.sprite.Sprite):
         
         self.travel_distance = 0
 
-    def update(self):
-        self.travel_distance += self.speed
+    def update(self):        
+        if self.rot == 0 or self.rot == 90 or self.rot == 180 or self.rot == 270 or self.rot == 360:
+            self.travel_distance += self.speed
+        else:
+            self.travel_distance += self.speed * 1.414
 
         if self.play_rect_area.top < self.rect.centery < self.play_rect_area.bottom \
                 and self.play_rect_area.left < self.rect.centerx < self.play_rect_area.right:
