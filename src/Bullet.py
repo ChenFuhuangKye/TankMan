@@ -24,8 +24,11 @@ class Bullet(pygame.sprite.Sprite):
         # Refactor
         if 7 > self.angle > 6:
             self.angle = 0
-        self.move = {"left_up": Vec(-self.speed, -self.speed), "right_up": Vec(self.speed, -self.speed),
-                     "left_down": Vec(-self.speed, self.speed), "right_down": Vec(self.speed, self.speed),
+        self.sqrt2 = 1.414
+        self.move = {"left_up": Vec(-self.speed/self.sqrt2, -self.speed/self.sqrt2),
+                     "right_up": Vec(self.speed/self.sqrt2, -self.speed/self.sqrt2),
+                     "left_down": Vec(-self.speed/self.sqrt2, self.speed/self.sqrt2), 
+                     "right_down": Vec(self.speed/self.sqrt2, self.speed)/self.sqrt2,
                      "left": Vec(-self.speed, 0), "right": Vec(self.speed, 0), "up": Vec(0, -self.speed),
                      "down": Vec(0, self.speed)}
                 
@@ -33,12 +36,9 @@ class Bullet(pygame.sprite.Sprite):
         
         self.travel_distance = 0
 
-    def update(self):        
-        if self.rot == 0 or self.rot == 90 or self.rot == 180 or self.rot == 270 or self.rot == 360:
-            self.travel_distance += self.speed
-        else:
-            self.travel_distance += self.speed * 1.414
-
+    def update(self):                
+        self.travel_distance += self.speed
+                            
         if self.play_rect_area.top < self.rect.centery < self.play_rect_area.bottom \
                 and self.play_rect_area.left < self.rect.centerx < self.play_rect_area.right:
             is_out = False
